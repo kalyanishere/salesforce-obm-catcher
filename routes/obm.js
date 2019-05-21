@@ -33,12 +33,16 @@ unwrapMessage = function(obj) {
     console.log('Org ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0]);
     var orgId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0];
     console.log('body'+obj['soapenv:envelope']['soapenv:body'][0].notifications[0]);
+    console.log('0');
     console.log('SF ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0]);
     var contactId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0];
-   
+   console.log('1');
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0]);
+    console.log('2');
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]);
-    console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:MobilePhone'][0]);
+    console.log('3');
+    console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:Contact'][0]);
+    console.log('4');
     console.log('Notifications'+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:MobilePhone'][0]);
     console.log('Mobile ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[1]['sf:MobilePhone'][0]);
     var mobilePhone = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[1]['sf:MobilePhone'][0];
