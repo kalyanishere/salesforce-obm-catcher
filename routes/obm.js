@@ -4,9 +4,9 @@ var router = express.Router();
 
 router.post('/', function(req, res) {
   // get the obm as an object
-  console.log('req.body'+req.body);
-  console.log(req.headers['content-type']);
-   console.log(req.toString());
+ // console.log('req.body'+req.body);
+ // console.log(req.headers['content-type']);
+ //  console.log(req.toString());
   var message = unwrapMessage(req.body);
   if (!_.isEmpty(message)) {
     // some something #awesome with message
@@ -32,6 +32,7 @@ unwrapMessage = function(obj) {
     var orgId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0];
     console.log('SF ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0]);
     var contactId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0];
+    console.log('Notifications'+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0])
     console.log('Mobile ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0]);
     var mobilePhone = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0];
 
