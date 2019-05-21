@@ -49,9 +49,7 @@ unwrapMessage = function(obj) {
       mobilePhone: mobilePhone
     };
   } catch (e) {
-    //res.send(
-      '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://soap.sforce.com/2005/09/outbound"><soapenv:Header/><soapenv:Body><out:notificationsResponse><out:Ack>true</out:Ack></out:notificationsResponse></soapenv:Body></soapenv:Envelope>'
-    //);
+    
     console.log('Could not parse OBM XML', e);
     return {};
   }
