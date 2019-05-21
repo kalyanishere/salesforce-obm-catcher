@@ -26,19 +26,22 @@ router.post('/', function(req, res) {
 unwrapMessage = function(obj) {
   try {
 
-    var orgId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0];
-    var contactId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0];
-    var mobilePhone = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0];
+    //var orgId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0];
+    //var contactId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0];
+    //var mobilePhone = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0];
 
     return {
-      orgId: orgId,
-      contactId: contactId,
-      mobilePhone: mobilePhone
+      orgId: '12324',
+      contactId: '1212',
+      mobilePhone: '1212'
     };
 
   } catch (e) {
-    console.log('Could not parse OBM XML', e);
-    return {};
+    res.send(
+      '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://soap.sforce.com/2005/09/outbound"><soapenv:Header/><soapenv:Body><out:notificationsResponse><out:Ack>true</out:Ack></out:notificationsResponse></soapenv:Body></soapenv:Envelope>'
+    );
+    //console.log('Could not parse OBM XML', e);
+    //return {};
   }
 };
 
