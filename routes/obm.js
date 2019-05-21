@@ -40,8 +40,8 @@ unwrapMessage = function(obj) {
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0]);
     console.log('2');
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]);
-    console.log('Mobile ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:MobilePhone'][0]);
-    var mobilePhone = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:MobilePhone'][0];
+    console.log('Mobile ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0]);
+    var mobilePhone = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0];
 
     return {
       orgId: orgId,
