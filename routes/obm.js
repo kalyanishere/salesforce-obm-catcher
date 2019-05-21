@@ -27,20 +27,20 @@ router.post('/', function(req, res) {
 // unwrap the xml and return object
 unwrapMessage = function(obj) {
   try {
-    console.log(obj['soapenv:envelope']);
-    console.log(obj['soapenv:envelope']['soapenv:body'][0]);
-    console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0]);
-    console.log('Org ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0]);
+   // console.log(obj['soapenv:envelope']);
+   // console.log(obj['soapenv:envelope']['soapenv:body'][0]);
+   // console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0]);
+   // console.log('Org ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0]);
     var orgId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0];
-    console.log('body'+obj['soapenv:envelope']['soapenv:body'][0].notifications[0]);
-    console.log('0');
-    console.log('SF ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0]);
+   // console.log('body'+obj['soapenv:envelope']['soapenv:body'][0].notifications[0]);
+   // console.log('0');
+   // console.log('SF ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0]);
     var contactId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0];
-   console.log('1');
-    console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0]);
-    console.log('2');
-    console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]);
-    console.log('Mobile ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0]);
+  // console.log('1');
+  //  console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0]);
+  //  console.log('2');
+ //   console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]);
+ //   console.log('Mobile ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0]);
     var mobilePhone = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0];
 
     return {
