@@ -28,10 +28,12 @@ router.post('/', function(req, res) {
 unwrapMessage = function(obj) {
   try {
 //console.log(obj['soapenv:envelope']);
-console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0]);
-    //var orgId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0];
-    //var contactId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0];
-    //var mobilePhone = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0];
+    console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0]);
+    var orgId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0];
+    console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0]..notification[0].sobject[0]['sf:id'][0]);
+    var contactId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0];
+    console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0]..notification[0].sobject[0]['sf:mobilephone'][0]);
+    var mobilePhone = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0];
 
     return {
       orgId: '12324',
