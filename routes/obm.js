@@ -32,21 +32,21 @@ unwrapMessage = function(obj) {
     var orgId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0];
     console.log('SF ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0]);
     var contactId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0];
-    console.log(obj['Mobile ID '+'soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0]);
+    console.log(obj['Mobile ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0]);
     var mobilePhone = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0];
 
     return {
-      orgId: '12324',
-      contactId: '1212',
-      mobilePhone: '1212'
+      orgId: orgId,
+      contactId: contactId,
+      mobilePhone: mobilePhone
     };
 
   } catch (e) {
-    res.send(
+    //res.send(
       '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://soap.sforce.com/2005/09/outbound"><soapenv:Header/><soapenv:Body><out:notificationsResponse><out:Ack>true</out:Ack></out:notificationsResponse></soapenv:Body></soapenv:Envelope>'
-    );
-    //console.log('Could not parse OBM XML', e);
-    //return {};
+    //);
+    console.log('Could not parse OBM XML', e);
+    return {};
   }
 };
 
