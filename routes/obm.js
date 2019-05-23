@@ -7,6 +7,12 @@ router.post('/', function(req, res) {
  // console.log('req.body'+req.body);
  // console.log(req.headers['content-type']);
  //  console.log(req.toString());
+  
+  var parseString = require('xml2js').parseString;
+  var xml = req.body;
+  parseString(xml, function (err, result) {
+      console.dir(JSON.stringify(result));
+  });
   var message = unwrapMessage(req.body);
   if (!_.isEmpty(message)) {
     // some something #awesome with message
