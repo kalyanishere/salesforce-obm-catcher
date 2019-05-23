@@ -28,10 +28,11 @@ router.post('/', function(req, res) {
 unwrapMessage = function(obj) {
   try {
    // console.log(obj['soapenv:envelope']);
-   // console.log(obj['soapenv:envelope']['soapenv:body'][0]);
+   console.log(obj['soapenv:envelope']['soapenv:body'].size());
    // console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0]);
    // console.log('Org ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0]);
-    var orgId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0];
+   var orgId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0];
+    
    // console.log('body'+obj['soapenv:envelope']['soapenv:body'][0].notifications[0]);
    // console.log('0');
    // console.log('SF ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0]);
@@ -43,10 +44,26 @@ unwrapMessage = function(obj) {
  //   console.log('Mobile ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0]);
     var mobilePhone = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0];
 
+    var orgId1 = obj['soapenv:envelope']['soapenv:body'][1].notifications[1].organizationid[1];
+    
+   // console.log('body'+obj['soapenv:envelope']['soapenv:body'][0].notifications[0]);
+   // console.log('0');
+   // console.log('SF ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:id'][0]);
+    var contactId1 = obj['soapenv:envelope']['soapenv:body'][1].notifications[1].notification[1].sobject[1]['sf:id'][1];
+  // console.log('1');
+  //  console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0]);
+  //  console.log('2');
+ //   console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]);
+ //   console.log('Mobile ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].notification[0].sobject[0]['sf:mobilephone'][0]);
+    var mobilePhone1 = obj['soapenv:envelope']['soapenv:body'][1].notifications[1].notification[1].sobject[1]['sf:mobilephone'][1];
+
     return {
       orgId: orgId,
       contactId: contactId,
       mobilePhone: mobilePhone
+      orgId1: orgId1,
+      contactId1: contactId1,
+      mobilePhone1: mobilePhone1
     };
   } catch (e) {
     
