@@ -27,10 +27,13 @@ router.post('/', function(req, res) {
 // unwrap the xml and return object
 unwrapMessage = function(obj) {
   try {
+   console.log('Envelope');
    console.log(obj['soapenv:envelope']);
+    console.log('Body');
    console.log(obj['soapenv:envelope']['soapenv:body'][0]);
-   
-    console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0]);
+   console.log('Notifications array 0');
+   console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[0]);
+    console.log('Notifications array 1');
     console.log(obj['soapenv:envelope']['soapenv:body'][0].notifications[1]);
    // console.log('Org ID '+obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0]);
    var orgId = obj['soapenv:envelope']['soapenv:body'][0].notifications[0].organizationid[0];
