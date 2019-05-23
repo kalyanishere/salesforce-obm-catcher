@@ -60,7 +60,7 @@ unwrapMessage = function(obj) {
     return {
       orgId: orgId,
       contactId: contactId,
-      mobilePhone: mobilePhone
+      mobilePhone: mobilePhone,
       orgId1: orgId1,
       contactId1: contactId1,
       mobilePhone1: mobilePhone1
